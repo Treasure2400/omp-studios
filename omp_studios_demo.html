@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OMP Studio's — Demo</title>
+
+  <!--
+    Demo website for "OMP Studio's"
+    - White background, black heading in Harlow Solid Italic
+    - Pages: Home | About | Services | Gallery (single-file demo with sections)
+
+    FONT NOTE: Harlow Solid Italic is a commercial/desktop font and may not be available
+    on the web by default. To use it in this demo, place a webfont file named
+    `HarlowSolidItalic.woff2` (or .woff) into a `fonts/` folder next to this HTML file.
+
+    If you don't have the font, the page will fall back to a similar serif italic ("Georgia, 'Times New Roman', serif").
+  -->
+
+  <style>
+    /* load local Harlow if available (place font file in ./fonts/) */
+    @font-face {
+      font-family: 'HarlowSolidItalicWeb';
+      src: url('fonts/HarlowSolidItalic.woff2') format('woff2'),
+           url('fonts/HarlowSolidItalic.woff') format('woff');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    :root{
+      --max-width: 1100px;
+      --muted: #444;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:var(--muted);
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* Navigation */
+    header{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      padding:0 40px;
+      z-index:30;
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+      backdrop-filter: blur(4px);
+    }
+    nav a{margin-left:28px;text-decoration:none;color:#000;font-weight:500}
+
+    /* Hero / Wrapper */
+    main{padding-top:120px}
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;padding:60px 24px;
+    }
+
+    .hero{
+      text-align:left;
+      display:block;
+      padding:60px 0 40px 0;
+    }
+
+    /* Harlow heading */
+    .logo{
+      font-family: 'HarlowSolidItalicWeb', Georgia, 'Times New Roman', serif;
+      font-style:italic;
+      font-weight:700;
+      font-size:96px;
+      letter-spacing:1px;
+      color:#000;
+      margin:30px 0 10px 0;
+      line-height:0.9;
+    }
+
+    @media (max-width:900px){
+      .logo{font-size:64px;text-align:center}
+      header{justify-content:center}
+    }
+
+    .tagline{font-size:20px;margin:22px 0 28px 0;color:var(--muted)}
+
+    .cta{
+      display:inline-block;
+      border:2px solid #000;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:600;
+    }
+
+    /* Copy columns */
+    .lead{max-width:760px;margin-top:40px;color:#222}
+
+    section{padding:72px 0}
+    h2{font-size:28px;color:#111;margin-bottom:14px}
+
+    /* Services list */
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .service{padding:18px;border-radius:8px}
+    .service h3{margin:0 0 8px 0}
+
+    @media (max-width:800px){
+      .services{grid-template-columns:1fr}
+    }
+
+    /* Gallery grid: placeholder boxes */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .thumb{
+      background:linear-gradient(135deg,#eee,#fafafa);
+      height:200px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#999;font-weight:600
+    }
+    @media (max-width:1000px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.gallery-grid{grid-template-columns:1fr}}
+
+    footer{padding:40px 0;color:#777;text-align:center;border-top:1px solid #f0f0f0}
+
+    /* smooth scrolling */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="home" class="container">
+      <div class="hero">
+        <div class="logo">OMP Studio's</div>
+        <div class="tagline">Capturing moments. Creating memories.</div>
+        <a class="cta" href="#contact" onclick="alert('Demo: booking flow not included')">Book a session</a>
+
+        <p class="lead">OMP Studio's is a boutique photography studio specializing in natural, timeless imagery. We blend editorial style with warm, candid moments to create photographs you'll keep forever.</p>
+      </div>
+    </div>
+
+    <div id="about" class="container">
+      <section>
+        <h2>About</h2>
+        <p>OMP Studio's was founded to create honest, stylish photography for people and brands. Our approach is simple: thoughtful composition, natural light, and careful attention to detail. Led by a small team of passionate photographers, we work on portraits, events, and commercial shoots.</p>
+      </section>
+    </div>
+
+    <div id="services" class="container">
+      <section>
+        <h2>Services</h2>
+        <div class="services">
+          <div class="service"><h3>Portraits</h3><p>Individual and family sessions handcrafted to reflect your personality.</p></div>
+          <div class="service"><h3>Weddings & Events</h3><p>Full-day coverage and intimate elopements.</p></div>
+          <div class="service"><h3>Commercial</h3><p>Product, lifestyle and brand imagery for businesses.</p></div>
+          <div class="service"><h3>Studio Sessions</h3><p>Controlled-light studio portraits and headshots.</p></div>
+        </div>
+      </section>
+    </div>
+
+    <div id="gallery" class="container">
+      <section>
+        <h2>Gallery</h2>
+        <p>A curated selection of recent shoots. Click any image to view full size (demo placeholders below).</p>
+
+        <div class="gallery-grid">
+          <div class="thumb" role="img" aria-label="Portrait of a woman smiling">Portrait — Woman</div>
+          <div class="thumb" role="img" aria-label="Wedding couple at sunset">Wedding — Couple</div>
+          <div class="thumb" role="img" aria-label="Commercial product shot">Commercial — Product</div>
+          <div class="thumb" role="img" aria-label="Studio headshot of man">Studio — Headshot</div>
+          <div class="thumb" role="img" aria-label="Lifestyle outdoor family">Lifestyle — Family</div>
+          <div class="thumb" role="img" aria-label="Black and white editorial portrait">Editorial — B&amp;W</div>
+        </div>
+      </section>
+    </div>
+
+    <div id="contact" class="container">
+      <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:hello@ompstudios.com">hello@ompstudios.com</a></p>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> OMP Studio's — All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // small script to set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // optional: simple keyboard focus for accessible nav
+    const links = document.querySelectorAll('header nav a');
+    links.forEach(l=>{
+      l.addEventListener('click',()=>{
+        // close mobile menu behaviour could go here (not implemented in demo)
+      })
+    })
+  </script>
+</body>
+</html>
